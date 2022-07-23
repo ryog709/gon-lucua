@@ -1,0 +1,1305 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+li {
+  list-style: none;
+}
+body {
+  font-family: Helvetica, Arial, "游ゴシック Medium", 游ゴシック体, "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Gothic ProN", "Hiragino Sans", メイリオ, Meiryo, "MS PGothic", sans-serif;
+}
+// * {
+//   outline: 2px red solid;
+// }
+// ヘッダー
+/* 背景を画面下まで設定 */
+header {
+  .box {
+    height: 100vh;
+    background-image: url(../img/mv_pc.jpg);
+    background-size: cover;
+    background-position: center top;
+  }
+  .inner {
+    position: absolute;
+    width: 360px;
+    left: 46px;
+    bottom: 40px;
+  }
+}
+@media screen and (max-width: 768px){
+  header {
+    .box {
+      width: 100%;
+      height: 100%;
+      padding-top: 140%;
+      background-image: url(../img/mv_sp.jpg);
+      background-size: 100%;
+      transition-duration: 1s;
+    }
+      .inner {
+        display: none;
+      }
+  }
+}
+
+// メイン、ヘッダーナビ
+
+.p-fv_header {
+  display: flex;
+  justify-content: space-between;
+  margin: 35px 0 150px 15px;
+  padding-left: 30px;
+  align-items: center;
+  position: relative;
+	ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 0 0 30px;    
+		li {
+      display: inline;
+      margin-left: 20px;   
+      a {
+        color: #681216;
+        font-weight: bold;
+      }
+			a.button1 {
+        display: inline-block;
+        text-align: center;
+        width: 230px;
+        height: 62px;
+        padding: 15px;
+        line-height: 0.8;
+        color: #ffffff;
+        background: #38d0dd;
+        text-decoration: none;
+        border: 1px #00b5ad solid;
+        border-radius: 30px;
+        transition: 0.4s ease;
+        .text-1 {
+          font-size: 12px;
+        }
+      }
+      a.button1:hover {
+        color: #fff;
+        background: #38d0dd;
+        opacity: 0.8;
+      }
+			}
+		}
+  
+
+    @media screen and (max-width: 870px){
+      ul {
+        display: none;
+      }
+
+      // ハンバーガーメニュー
+
+      div.hamburger {
+            display: block;
+            z-index: 10;
+            width: 60px;
+            font-size: 0;
+            line-height: 4px;
+            cursor: pointer;
+          .menu3-1,
+          .menu3-2,
+          .menu3-3 {
+            box-sizing: border-box;
+            display: inline-block;
+            width: 50px;
+            height: 1px;
+            margin: 4px 5px;
+            background-color: #681216;
+            border-radius: 4px;
+            transition: all 0.4s;
+          }
+          .close .menu3-1 {
+            transform: translateY(11px) rotate(-45deg);
+          }
+          .close .menu3-2 {
+            opacity: 0;
+          }
+          .close .menu3-3 {
+            transform: translateY(-11px) rotate(45deg);
+          }
+      }
+    }
+  }
+  .fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: #ffffff;
+    margin: 0;
+    padding-left: 5%;
+    width: 100vw;
+    height: 80px;
+    .app {
+      display: none;
+    }
+  }
+@media screen and (max-width:768px){ 
+  .fixed {
+    background-color: transparent;
+  } 
+}
+
+  // ハンバーガーメニューインナー
+
+    div.inner-menu {
+        background-color: #707070;
+        width: 500px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 110px 0;
+        text-align: center;
+        right: -150%;
+        transition: right .5s;
+        z-index: 10;
+        a.logo1 {
+          fill: #fff;
+        }
+        a.logo1 :hover {
+          opacity: 0.8;
+        }
+        ul.inner-list {
+          font-size: 20px;
+          color: #ffffff;
+          font-weight: bold;
+          margin: 80px 0 90px;
+            li {
+              padding-bottom: 35px;
+              a {
+                color: #ffffff;
+              }
+              span {
+                padding-left: 3px;
+              }
+            }
+        }
+        ul.inner-list :hover {
+          opacity: 0.8;
+        }
+        .btn {
+          font-size: 20px;
+          font-weight: bold;          
+          display: inline-block;
+          padding: 0.9em 1.6em;
+          width: 358px;
+          line-height: 1;
+          background: #681216;
+          text-decoration: none;
+          user-select: none;
+          border: 1px #681216 solid;
+          border-radius: 40px;
+          transition: 0.4s ease;
+           a {
+             color: #ffffff;
+             span {
+               padding-left: 5px;
+             }
+           }
+          .text-1 {
+            font-size: 12px;
+            color: #ffffff;
+          }
+        }
+    }
+      
+      div.inner-menu.open {
+        right: 0;
+        div.hamburger {
+          display: block;
+          width: 60px;
+          font-size: 0;
+          line-height: 4px;
+          cursor: pointer;
+          position: fixed;
+          top: 25px;
+          right: 25px;
+          .menu3-1,
+          .menu3-2,
+          .menu3-3 {
+            box-sizing: border-box;
+            display: inline-block;
+            width: 50px;
+            height: 1px;
+            margin: 4px 5px;
+            background-color: white;
+            border-radius: 4px;
+            transition: all 0.3s;
+          }
+          .close .menu3-1 {
+            transform: translateY(11px) rotate(-45deg);
+          }
+          .close .menu3-2 {
+            opacity: 0;
+          }
+          .close .menu3-3 {
+            transform: translateY(-11px) rotate(45deg);
+          }
+        }
+      }
+  @media screen and (min-width:871px){
+    div.inner-menu.open {
+      display: none;
+    }
+  }
+  @media screen and (max-width:768px) {
+    div.inner-menu.open {
+      padding: 230px 0;
+      width: 100vw;
+      transition-property: width;
+      transition-duration: 0.5s;
+    }
+    .p-fv_header img {
+      display: none;
+    }
+    .hamburger {
+      position: fixed;
+      top: 40px;
+      right: 30px;
+      /* 最初は非表示 */
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(30px);
+      transition: opacity 1s, visibility 1s, transform 1s;
+    }
+      /* フェードイン時に入るクラス */
+    .is-fadein {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+    .p-fv_header a.button1 {
+      display: block;
+    }
+  }
+  @media screen and (min-width:768px) {
+    .app {
+      display: none;
+    }
+  }
+  .app a.button2 {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    font-size: 18px;
+    width: auto;
+    margin: auto;
+    width: 80%;
+    height: 4.5rem;
+    padding: 20px 15px 15px 15px;
+    line-height: 0.8;
+    color: #ffffff;
+    background: #38d0dd;
+    text-decoration: none;
+    border: 1px #00b5ad solid;
+    border-radius: 30px;
+    transition: 0.4s ease;
+    img {
+      display: inline;
+      padding-left: 5px;
+    }
+    .text-1 {
+      font-size: 12px;
+    }
+}
+
+// メニュー下案内
+#wrapper1 h1,h2,h3,h4 {
+  color: #d0c5b0;
+  font-weight: 550;
+  margin: 0 auto;
+}
+#wrapper1 {
+  #middle,#middle2,#bottom1,#bottom2 {
+    font-family: "Oswald", sans-serif;
+  }
+}
+#wrapper1 {
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  
+   #top1 {
+     font-size: 22px;
+     margin-bottom: 15px;
+     position: relative;
+   } 
+   #top1::before{
+     content:"";
+     display: inline-block;
+     width: 230px;
+     height: 6px;
+     background-color: #d0c5b0;
+     position: absolute; 
+     top: -30px;
+     right: 65%;
+     transform: rotate(-28deg);
+   }
+   #top1::after{
+     content:"";
+     display: inline-block;
+     width: 230px;
+     height: 6px;
+     background-color: #d0c5b0;
+     position: absolute; 
+     top: -30px;
+     left: 65%;
+     transform: rotate(28deg);
+   }
+   #top2 {
+     font-size: 38px;
+     line-height: 3rem;
+     margin-bottom: -20px;
+   }
+   #middle {
+     font-size: 120px;
+     margin-bottom: -23px;
+     position: relative;
+   }
+   #middle::before {
+     content: "";
+     display: inline-block;
+     width: 6px;
+     height: 170px;
+     background-color: #d0c5b0;
+     position: absolute;
+     right: 95%;
+  }
+   #middle::after {
+     content: "";
+     display: inline-block;
+     width: 6px;
+     height: 170px;
+     background-color: #d0c5b0;
+     position: absolute;
+     left: 95%;
+  }
+   #middle2 {
+     font-size: 32px;
+     margin-bottom: -10px;
+     span {
+       font-size: 59px;
+     }
+   }
+   #bottom1 {
+     font-size: 22px;
+     margin-bottom: -15px;
+   }
+   #bottom2 {
+     font-size: 62px;
+     position: relative;
+   }
+   #bottom2::before {
+     content: "";
+     display: inline-block;
+     width: 230px;
+     height: 6px;
+     background-color: #d0c5b0;
+     position: absolute; 
+     top: 50px;
+     right: 65%;
+     transform: rotate(28deg);
+   }
+   #bottom2::after {
+     content: "";
+     display: inline-block;
+     width: 230px;
+     height: 6px;
+     background-color: #d0c5b0;
+     position: absolute; 
+     top: 50px;
+     left: 65%;
+     transform: rotate(-28deg);
+   }
+}
+
+// 試着室では、思い切りわがままになりたい。
+
+#about {
+  margin: 80px 0;
+  font-weight: 600;
+  #text {
+    font-size: 38px;
+    margin-bottom: 50px;
+  }
+  p {
+    color: #681216;
+    text-align: center;
+    padding-bottom: 13px;
+  }
+  #text3 {
+    margin-bottom: 37px;
+  }
+}
+
+// SPレスポンシブ対応
+// あの店〜試着室では部分
+
+@media screen and (max-width: 768px) {
+  #wrapper1 {
+    position: relative;
+    overflow: hidden;
+    padding: 50px 0;
+    margin: 0 auto;
+    width: 100%;
+    h1,h2,h3,h4 {
+      font-weight: 500;
+      margin: 0 auto;  
+    }
+  
+    #top1 {
+      font-size: 14px;
+    }
+    #top1::before {
+        content: "";
+        width: 120px;
+        height: 3px;
+        position: absolute;
+        right: 84%;
+      }
+    #top1::after {
+        content: "";
+        display: inline-block;
+        width: 120px;
+        height: 3px;
+        position: absolute;
+        left: 84%;
+      }
+    #top2 {
+      font-size: 20px;
+      line-height: 1.5rem;
+      padding-bottom: 10px;
+    }
+    #middle {
+      font-size: 64px;
+      padding-bottom: 5px;
+    }
+    #middle::before {
+      display: none;
+    }
+    #middle::after {
+      display: none;
+    }
+    #middle2 {
+      font-size: 16px;
+        span {
+          font-size: 40px;
+        }
+    }
+    #bottom1 {
+      font-size: 14px;
+      padding-bottom: 5px;
+    }
+    #bottom2 {
+      font-size: 52px;
+    }
+    #bottom2::before {
+      content: "";
+      width: 120px;
+      height: 3px;
+      position: absolute;
+      right: 84%;
+      top: 80px;
+    }
+    #bottom2::after {
+      content: "";
+      width: 120px;
+      height: 3px;
+      position: absolute;
+      left: 84%;
+      top: 80px;
+    }
+  }
+    #about {
+      margin: 160px auto;
+      #text {
+        font-size: 22px;
+      }
+      p {
+        font-size: 14px;
+        padding-bottom: 10px;
+        span {
+          display: block;
+          line-height: 2.5rem;
+        }
+      }
+    }
+  
+}
+// 新しい試着のカタチ。
+.katati {
+  background-color: #f5f0e7;
+  padding-bottom: 90px;
+    h1 {
+      color: #681216;
+      font-size: 38px;
+      text-align: center;
+      padding: 105px 0 50px 0;
+      // z-index: 1;
+    }
+  position: relative;
+}
+.katati::before {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background-color: #F5F0E7;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+.outer {
+  display: flex;
+  justify-content: center;
+}
+.inner {
+  text-align: center;
+    p {
+      color: #681216;
+      font-weight: bold;
+    }
+}
+
+// WHAT IS “E SALON”?
+.e-salon {
+  background-color: #d0c5b0;
+   .content {
+    padding-top: 105px;
+    padding-bottom: 85px;
+   } 
+    h2 {
+      font-family: "Oswald",sans-serif;
+      font-size: 70px;
+      letter-spacing: 5.6px;
+    }
+    .t1 {
+      font-size: 32px;
+      padding-bottom: 50px;
+
+    }
+    .t2 {
+      font-size: 38px;
+      padding-bottom: 50px;
+    }
+    h2,p {
+      color: #681216;
+      text-align: center;
+      font-weight: 500;
+    }
+    p {
+      padding-bottom: 10px;
+      font-weight: bold;
+    }
+}
+// スライダー/フェードイン
+.slick {
+  padding-bottom: 95px;
+  .slider {
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+  }
+    ul {
+      max-width: 996px;
+        p {
+          font-size: 20px;
+        }
+    }
+  .slide-arrow {
+    z-index: 1;
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+  }
+  .prev-arrow {
+    position: absolute;
+    left: 20px;
+  }
+  .next-arrow {
+    position: absolute;
+    right: 20px;
+  }
+  .slick-dots li button:before{
+    font-size: 120px;
+    color: #707070;
+    opacity: 1;
+  }
+  .slick-dots li{
+    width: 30px;
+  }
+  .slick-active button:before {
+    color: #fff!important;
+  }
+  }
+  
+
+// HOW TO USE ご利⽤の流れ
+
+.how-to {
+  padding: 105px 0 120px 0;
+  text-align: center;
+   .use {
+    font-family: 'Oswald',sans-serif;
+    font-size: 70px;
+    color: #681216;
+    letter-spacing: 5.6px;
+   }
+   .use-text {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 100px;
+  }  
+  .comment {
+    font-family: 'Oswald',sans-serif;
+    color: #d0c5b0;
+    font-size: 28px;
+    font-weight: normal;
+  }
+  .about {
+    font-size: 28px;
+    span {
+      display: block;
+    }
+  }
+  .about2 {
+    text-align: left;
+    padding: 15px 25px 40px 25px;
+  }
+   p {
+    color: #681216;
+    font-weight: bold;
+   }
+   #step {
+    display: flex;
+    gap: 12px;
+     div {
+      width: 100%;
+     }
+   } 
+   .btn {
+    margin-top: 100px;
+   }
+   .button3 {
+      background-color: #dd5038;
+      color: #ffffff;
+      padding: 12px 24px;
+      font-weight: 700;
+      border-radius: 100px;
+   }
+   .button4 {
+      font-size: 20px;
+   }
+}
+
+// BRANDS ご試着可能ブランド
+
+.brands {
+  background-color: #d0c5b0;
+  padding: 175px 0;
+  text-align: center;
+  position: relative;
+    .title {
+      position: absolute;
+      top: -50px;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    h2,p {
+      color: #681216;
+    }
+    h2 {
+      font-size: 70px;
+      font-family: 'Oswald',sans-serif;
+    }
+    p {
+      font-size: 32px;
+      font-weight: bold;
+    }
+    .caption {
+      font-size: 18px;
+      color: black;
+      font-weight: 400;
+      margin-top: 23px;
+    }
+    .wrapper2 {
+      max-width: 900px;
+      margin: 0 auto;
+      .brand-list {
+        display: grid;
+        gap: 70px;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        li {
+          width: auto;
+          height: auto;
+          img {
+            width: auto;
+            background-color: #ffffff;
+          }
+        }
+      }
+    }
+    .btn {
+      margin-top: 110px;
+    }
+    .button3 {
+      background-color: #dd5038;
+      color: #ffffff;
+      padding: 12px 36px;
+      font-weight: 700;
+      border-radius: 40px;
+      font-size: 20px;
+   }
+}
+
+// フッターメニュー
+
+footer {
+  background-color: #681216;
+  text-align: center;
+  padding: 80px 0;
+  .btn {
+    margin-top: 80px;
+  }
+  a.button1 {
+    display: inline-block;
+    text-align: center;
+    width: 330px;
+    height: 81px;
+    padding: 22px 43px 22px 43px;
+    line-height: 0.8;
+    font-size: 20px;
+    color: #ffffff;
+    background: #dd5038;
+    text-decoration: none;
+    user-select: none;
+    border: 1px #dd5038 solid;
+    border-radius: 40px;
+    transition: 0.4s ease;
+    .text-1 {
+      font-size: 12px;
+    }
+  }
+  a.button1:hover {
+    color: #fff;
+    background: #dd5038;
+    opacity: 0.8;
+  }
+  .footer-menu {
+    ul {
+      display: flex;
+      align-items: center;
+      margin: 100px auto 190px;    
+      li {
+        flex: auto;
+        a {
+          color: #ffffff;
+          font-weight: bold;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .profile {
+    margin-bottom: 20px;
+    .profile-img {
+      padding-bottom: 25px;
+    }
+    a {
+      font-size: 14px;
+      color: #ffffff;
+      margin-left: 30px;
+    }
+  }
+  p {
+    font-size: 10px;
+    color: #ffffff;
+  }
+}
+
+// レスポンシブ対応 HOW TO以降〜 768px~
+
+@media screen and (max-width:768px){
+  .katati {
+    h1 {
+      font-size: 22px;
+    }
+    .outer {
+      display: block;
+      padding-bottom: 80px;
+      .inner {
+        padding-bottom: 80px;
+      }
+    }
+  }
+
+ // WHAT IS “E SALON”?
+
+  .e-salon {
+    text-align: center;
+    h2 {
+      font-size: 36px;
+      max-width: 100%;
+      letter-spacing: 0.14px;
+    }
+    .t1 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+    .t2 {
+      font-size: 22px;
+      display: inline;
+      border-bottom: solid 2px #681216;
+      padding-bottom: 5px;
+    }
+    .t3 {
+      padding: 0 5%;
+      margin: 110px 0 0 0;
+        p {
+          font-size: 14px;
+          text-align: left;
+        }
+    }
+    .slick {
+      padding-bottom: 160px;
+      .slider {
+        display: block;
+        p {
+          font-size: 14px;
+          padding-bottom: 80px;
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+    position: relative;
+    z-index: 1;
+  }
+  .e-salon::before {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: #d0c5b0;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+// HOW TO USE ご利⽤の流れ
+
+.how-to {
+  padding-bottom: 220px;
+  .use {
+    font-weight: 500;
+    font-size: 36px;
+    max-width: 100%;
+    letter-spacing: 0.14px;
+    position: relative;
+    z-index: 3;
+  }
+  .use-text {
+    font-size: 22px;
+    position: relative;
+    z-index: 3;
+  }
+  #step {
+    display: block;
+    .container {
+      padding-bottom: 100px;
+    }
+    .comment {
+      font-size: 1.8rem;
+    }
+    .about {
+      font-size: 22px;
+      span {
+        display: inline;
+      }
+    }
+    .about2 {
+      font-size: 14px;
+      text-align: center;
+      span {
+        display: block;
+      }
+    }
+    .button3 {
+      font-size: 14px;
+      font-weight: normal;
+      padding: 12px 150px;
+    }
+  }
+  .btn {
+    margin-top: 70px;
+    .button4 {
+      font-size: 14px;
+      font-weight: normal;
+      padding: 12px 110px;
+    }
+  }
+  position: relative;
+  z-index: 1;
+}
+.how-to::before {
+  content: "";
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: #fff;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+// BRANDS ご試着可能ブランド
+
+.brands {
+  padding: 100px 0 200px 0;
+  .title {
+    h2 {
+      font-size: 36px;
+      max-width: 100%;
+    }
+    p {
+      font-size: 22px;
+    }
+  }
+  .wrapper2 {
+    .brand-list {
+      display: grid;
+      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 50px;
+      li {
+        width: auto;
+        height: auto;
+        margin: 0 auto;
+        img {
+          width: 267px;
+        }
+      }
+    }
+  }
+  .btn {
+    margin-top: 50px;
+    .button3 {
+      font-size: 14px;
+      font-weight: 400;
+      padding: 12px 150px;
+    }
+  }
+  .caption {
+    font-size: 14px;
+    font-weight: bold;
+    span {
+      display: block;
+    }
+  }
+}
+
+// フッターメニュー
+
+footer {
+  text-align: center;
+  .salon01 {
+    width: 521px;
+    margin-bottom: 13.3vmin;
+  }
+  .btn {
+    margin-bottom: 200px;
+    .button1 {
+      font-size: 14px;
+      width: 70%;
+      height: 4rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+  .footer-menu {
+    ul {
+      display: flex;
+      flex-flow: column;
+      margin-bottom: 150px;
+      li {
+        margin-bottom: 7vh;
+      }
+    }
+  }
+  .profile {
+    display: flex;
+    flex-flow: column;
+    .profile-img {
+      img {
+        width: 35%;
+        margin-bottom: 9.6vmin;
+      }
+    }
+    .info2 {
+      margin-bottom: 9.6vmin;
+    }
+  }
+  p {
+    margin: 0 auto 0 auto;
+  }
+}
+}
+
+// レスポンシブ対応〜480px以下
+
+@media screen and (max-width: 480px){
+  .app {
+    a.button2 {
+      font-size: 1.2rem;
+      .text-1 {
+        font-size: 1rem;
+      }
+    }
+  }
+  #wrapper1 {
+    #top1 {
+      font-size: 1rem;
+    }
+    #top1::before {
+      position: absolute;
+      right: 75%;
+    }
+    #top1::after {
+      position: absolute;
+      left: 75%;
+    }
+    #top2 {
+      font-size: 1.4rem;
+      font-weight: bold;
+      line-height: 1.5;
+      padding-bottom: 15px;
+    }
+    #middle {
+      font-size: 4.6rem;
+      font-weight: bold;
+      padding-bottom: 15px;
+    }
+    #middle2 {
+      padding-bottom: 10px;
+    }
+    #bottom1 {
+      padding-bottom: 15px;
+    }
+    #bottom2::before {
+      position: absolute;
+      right: 75%;
+    }
+    #bottom2::after {
+      position: absolute;
+      left: 75%;
+    }
+    #bottom2 {
+      font-weight: bold;
+    }
+  }
+
+  #about {
+    #text {
+      font-size: 1.7rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  .katati {
+    h1 {
+      font-size: 1.7rem;
+    }
+    .inner {
+      width: 85%;
+      margin: 0 auto;
+      p {
+        font-size: 1.2rem;
+        padding-top: 20px;
+        padding-bottom: 30px;
+      }
+    }
+  }
+  .e-salon {
+    .content {
+      padding-top: 50px;
+      padding-bottom: 40px;
+      h2 {
+        font-size: 2.5rem;
+      }
+      .t1 {
+        font-size: 1.7rem;
+        margin-bottom: 50px;
+      }
+      .t2 {
+        font-size: 1.7rem;
+        display: inline;
+        span {
+          display: block;
+          border-bottom: #681216 2px solid;
+          width: max-content;
+          margin: 0 auto;
+        }
+      }
+      .t3 {
+        margin: 60px 10px 0 10px;
+        p {
+          font-size: 1rem;
+          line-height: 39px;
+        }
+      }
+    }
+    .slick {
+      padding-bottom: 100px;
+      .slider p {
+        font-size: 1rem;
+        padding-bottom: 50px;
+      }
+    }
+  }
+
+  .how-to {
+    .use {
+      font-size: 2.4rem;
+    }
+    .use-text {
+      font-size: 1.8rem;
+    }
+    #step {
+      .container {
+        width: 75%;
+        margin: 0 auto;
+      .button3 {
+        font-size: 1.1rem;
+        padding: 12px 60px;
+      }
+      }
+      div .comment {
+        font-size: 1.9rem;
+      }
+      div .about {
+        font-size: 1.7rem;
+      }
+      div .about2 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 2;
+      }
+      .container2 {
+        width: 75%;
+        margin: 0 auto;
+      }
+    }
+    .btn {
+      width: 70%;
+      margin: 0 auto;
+      .button3 {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+      }
+    }
+  }
+  .brands {
+    padding-bottom: 150px;
+    .title {
+      p {
+        font-size: 1.8rem;
+      }
+    }
+    .wrapper2 {
+      .brand-list {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1fr 1fr;
+        margin: 0 40px;
+        li {
+          width: auto;
+          margin: 0 auto;
+        }
+      }
+    }
+    .btn {
+      margin-top: 70px;
+      .button3 {
+        font-size: 1.1rem;
+        padding: 12px 60px;
+      }
+    }
+    .caption {
+      font-size: 1.1rem;
+    }
+  }
+
+
+  footer {
+    .salon01 {
+      width: 70%;
+      margin-bottom: 40px;
+    }
+  .btn {
+    margin: 5px auto 30px auto;
+    .button1 {
+      height: auto;
+      width: auto;
+      font-size: 1.2rem;
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  .footer-menu {
+    ul {
+      margin-bottom: 30px;
+      li {
+        height: 10px;
+      }
+    }
+    ul li a {
+      font-size: 1.3rem;
+    }
+  }
+  .profile {
+    .profile-img {
+      padding-bottom: 10px;
+    }
+    .info2 {
+      font-size: 1.1rem;
+    }
+  }
+  }
+}
