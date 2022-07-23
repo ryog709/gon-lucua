@@ -380,35 +380,6 @@ $(window).on("scroll load", function () {
   });
 </script>
 
-<!-- <script>
-  function checkBreakPoint() {
-	w = $(window).width();
-	if (w >= 768) {
-		// PC向け（768px以上のとき）
-		$('.slider').not('.slick-initialized').slick({
-			//スライドさせる
-			slidesToShow: 1,
-			slidesToScroll: 1,
-      prevArrow: '<img src="img/slider_arw_prev.svg" class="slide-arrow prev-arrow">',
-      nextArrow: '<img src="img/slider_arw_next.svg" class="slide-arrow next-arrow">',
-      dots: true,
-      infinite: true,
-      speed: 500,
-      fade: true,
-      cssEase: 'linear'
-		});
-	} else {
-		// スマホ向け
-		$('.slider.slick-initialized').slick('unslick');
-	}
-}
-// ウインドウがリサイズする度にチェック
-$(window).resize(function(){
-	checkBreakPoint();
-});
-// 初回チェック
-checkBreakPoint();
-</script> -->
 <script>
 $('.slider').slick({
   dots: true,
